@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input [control]="cardForm.controls.name"></app-input>
+      <app-input [control]="cardForm.controls.email"></app-input>
+
+        <!-- <input type="text" [formControl]="cardForm.controls.name" > -->
+
+        <input type="submit" [disabled]="cardForm.invalid">
+    </form>
+
+
+    <div>
+        Error with name : {{cardForm.controls.name.errors | json}}
+    </div>
+    
+    <!-- For Dev Purpose  -->
+    <div>
+        Form Content : {{cardForm.value | json}}
+    </div>
+    
+    <div>
+        Form valid : {{cardForm.valid}}
+    </div>
+</div>

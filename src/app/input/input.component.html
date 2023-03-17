@@ -1,0 +1,31 @@
+<div class="field">
+<input type="text" class="input" [formControl]="control" >
+<!-- <input type="text" formControl="cardFornm.controls.name" > -->
+       
+<ng-container *ngIf="control.dirty &&
+control.touched && 
+ control.errors">
+ <div class="alert alert-danger" *ngIf="control.errors.required">
+     Value is required
+ </div>
+
+ <div class="alert alert-danger"  *ngIf="control.errors.minlength">
+ Value you entered is 
+ {{control.errors.minlength.actualLength}}
+  but you must enter atleast 
+ {{control.errors.minlength.requiredLength}}
+ </div>
+
+
+ <div class="alert alert-danger"  *ngIf="control.errors.maxLength">
+    Value you entered is 
+    {{control.errors.minlength.actualLength}}
+     but you must enter less than 
+    {{control.errors.minlength.requiredLength}}
+</div>
+
+<div class="alert alert-danger"  *ngIf="control.errors.pattern">
+   Invalid Format
+</div>
+</ng-container>
+</div>
